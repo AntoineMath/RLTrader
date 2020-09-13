@@ -1,6 +1,6 @@
+# rltrader
 [![tests Actions Status](https://github.com/AntoineMath/rltrader/workflows/tests/badge.svg)](https://github.com/AntoineMath/rltrader/actions)
 
-# rltrader
 A RL trained bot buying and selling bitcoin in a real time environment
 
 Work still in progress...
