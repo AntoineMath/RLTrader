@@ -7,6 +7,7 @@ from data.chart2 import KLINES2
 
 @ddt
 class TestDataProcessing(unittest.TestCase):
+    ## TODO: nothing
     @unpack
     @data({"klines_list": KLINES1}, {"klines_list": KLINES2})
     def test_klines_to_ohcl(self, klines_list):
