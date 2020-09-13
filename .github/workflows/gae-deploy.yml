@@ -1,27 +1,39 @@
-name: gae-deploy
+name: "gae-deploy"
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - "master"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        python-version: [3.8]
 
     steps:
-      - uses: actions/checkout@v1
-
-      - name: Set up Go 1.12
-        uses: actions/setup-go@v1
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
         with:
-          go-version: 1.12
-        id: go
-
-      - name: Build
-        run: go build
-
-      - uses: actions/gcloud/auth@master
-        env:
-          GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
-
-      - uses: actions/gcloud/cli@master
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt bandit
+      - name: Lint with bandit
+        run: |
+          bandit -r .
+      - name: Unit test
+        run: |
+          python -m unittest
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          args: "app deploy --quiet --project=rl-trading-app"
+          version: "290.0.1"
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - id: Deploy
+        uses: GoogleCloudPlatform/github-actions/appengine-deploy@master
+        with:
+          project_id: ${{ secrets.project_id }}
