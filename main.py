@@ -1,10 +1,10 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Output, Input
-from rl_trader.data_processing import klines_to_ohcl, build_candlestick_graph
 from binance.client import Client
+from dash.dependencies import Input, Output
 
+from rl_trader.data_processing import build_candlestick_graph, klines_to_ohcl
 
 INTERVAL = 1000
 

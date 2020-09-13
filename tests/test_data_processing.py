@@ -1,6 +1,9 @@
 import unittest
-from ddt import ddt, data, unpack
-from rl_trader.data_processing import klines_to_ohcl, datetime
+
+from ddt import data, ddt, unpack
+
+from rl_trader.data_processing import datetime, klines_to_ohcl
+
 from .data.chart1 import KLINES1
 from .data.chart2 import KLINES2
 
