@@ -1,7 +1,9 @@
 name: Test
 on:
   push:
-    branches: [master]
+    branches:
+      - master
+      - test_cli 
 jobs:
   test:
     runs-on: ubuntu-latest
