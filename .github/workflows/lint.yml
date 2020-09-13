@@ -24,6 +24,6 @@ jobs:
     - name: Lint
       run: |
         isort --version-number
-        isort --check-only --quiet
+        isort . --check-only --quiet
         black --version
-        black --check .
+        black . --check 
