@@ -4,7 +4,7 @@ from rl_trader.data_processing import klines_to_ohcl, datetime
 from .data.chart1 import KLINES1
 from .data.chart2 import KLINES2
 
-
+# useless comment
 @ddt
 class TestDataProcessing(unittest.TestCase):
     @unpack
