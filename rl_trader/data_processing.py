@@ -10,14 +10,7 @@ def timestamp_to_time(timestamp_ms) -> datetime.date:
 
 
 def klines_to_ohcl(klines_list: list) -> dict:
-    """[summary]
 
-    Args:
-        klines_list (list): [description]
-
-    Returns:
-        dict: [description]
-    """
     ohcl_dict = {
         "t": [timestamp_to_time(kline[0]) for kline in klines_list],
         "o": [kline[1] for kline in klines_list],
