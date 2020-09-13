@@ -1,0 +1,4 @@
+dash==1.14.0
+dash-html-components==1.0.3
+plotly==4.9.0
+python-binance==0.7.5
