@@ -4,7 +4,7 @@ import dash_html_components as html
 from binance.client import Client
 from dash.dependencies import Input, Output
 
-from rl_trader.data_processing import build_candlestick_graph, klines_to_ohcl
+from rl_trader.render import build_candlestick_graph
 
 INTERVAL = 1000
 
