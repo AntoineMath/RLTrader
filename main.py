@@ -10,7 +10,7 @@ INTERVAL = 1000
 
 client = Client()
 
-dash_app = dash.Dash()
+dash_app = dash.Dash(title="RLTrader", update_title=None)
 app = dash_app.server
 
 dash_app.layout = html.Div(
