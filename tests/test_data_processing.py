@@ -17,7 +17,6 @@ class TestDataProcessing(unittest.TestCase):
 
         self.assertTrue(all(isinstance(value, list) for value in ohcl_dict.values()))
 
-        # test if all o, h, c, l lists have the same length
         len_dict = len(ohcl_dict["t"])
         self.assertTrue(all(len(value) == len_dict for value in ohcl_dict.values()))
 
